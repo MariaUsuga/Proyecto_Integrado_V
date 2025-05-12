@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 class Modeller:
     def __init__(self, logger):
         self.logger = logger
-        self.model_ruta = "src/edu_piv/static/models/"
+        self.model_ruta = "src/maria_piv/static/models/"
         self.pkl_ruta = os.path.join(self.model_ruta, "dolar_model.pkl")
 
         if not os.path.exists(self.model_ruta):

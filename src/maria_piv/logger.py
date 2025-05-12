@@ -2,22 +2,19 @@ import datetime
 import logging
 import os
 
-# Filtro que garantiza que siempre existan los campos extra
-class ContextFilter(logging.Filter):
-    def filter(self, record):
-        if not hasattr(record, 'class_name'):
-            record.class_name = ''
-        if not hasattr(record, 'function_name'):
-            record.function_name = ''
-        return True
-
 class Logger:
     def __init__(self):
+        # Crear la carpeta logs si no existe
         if not os.path.exists('logs'):
             os.makedirs('logs')
+            print("Carpeta 'logs' creada exitosamente.")
+        else:
+            print("La carpeta 'logs' ya existe.")
 
+        # Nombre del archivo de log con fecha y hora
         self.log_file = f"logs/dolar_analysis_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
+        # Configuración del logger
         logging.basicConfig(
             filename=self.log_file,
             level=logging.INFO,
@@ -26,21 +23,23 @@ class Logger:
         )
 
         self.logger = logging.getLogger('DolarAnalysis')
-        self.logger.addFilter(ContextFilter())  # <- importante
 
     def info(self, class_name, function_name, description):
+        """Registra un mensaje de nivel INFO."""
         self.logger.info(
             description,
             extra={'class_name': class_name, 'function_name': function_name}
         )
 
     def warning(self, class_name, function_name, description):
+        """Registra un mensaje de nivel WARNING."""
         self.logger.warning(
             description,
             extra={'class_name': class_name, 'function_name': function_name}
         )
 
     def error(self, class_name, function_name, description):
+        """Registra un mensaje de nivel ERROR."""
         self.logger.error(
             description,
             extra={'class_name': class_name, 'function_name': function_name}

@@ -49,7 +49,7 @@ def main():
             logger.warning("Main", "main", "Predicción fallida.")
             return
 
-        df_pred.to_csv("src/edu_piv/static/data/dolar_data_predicciones.csv", index=False)
+        df_pred.to_csv("src/maria_piv/static/data/dolar_data_predicciones.csv", index=False)
         logger.info("Main", "main", f"Predicciones guardadas. Última predicción: {valor:.2f} en {fecha}")
 
     except Exception as e:
