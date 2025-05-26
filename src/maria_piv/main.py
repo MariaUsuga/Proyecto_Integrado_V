@@ -1,4 +1,3 @@
-from maria_piv.logger import Logger
 from collector import Collector
 from enricher import Enricher
 from modeller import Modeller
