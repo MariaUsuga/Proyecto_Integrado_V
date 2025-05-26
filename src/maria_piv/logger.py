@@ -4,17 +4,12 @@ import os
 
 class Logger:
     def __init__(self):
-        # Crear la carpeta logs si no existe
         if not os.path.exists('logs'):
             os.makedirs('logs')
-            print("Carpeta 'logs' creada exitosamente.")
-        else:
-            print("La carpeta 'logs' ya existe.")
 
-        # Nombre del archivo de log con fecha y hora
         self.log_file = f"logs/dolar_analysis_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
-        # Configuración del logger
+
         logging.basicConfig(
             filename=self.log_file,
             level=logging.INFO,
