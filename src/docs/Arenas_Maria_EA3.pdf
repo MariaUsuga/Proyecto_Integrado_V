@@ -1,0 +1,140 @@
+Evidencia de Aprendizaje 3
+
+
+Proyecto Integrado V - Línea de Énfasis (Entrega 3)
+
+
+Estudiantes:
+Maria Johana Arenas Usuga
+
+
+Docente: Andrés Felipe Callejas
+
+
+Curso: Proyecto Integrado V – PREICA2501B020128
+
+
+Universidad Digital de Antioquia
+Ingeniería de Software y Datos
+Junio de 2025
+ 
+Automatización del Análisis de Datos Financieros de Bancolombia S.A. (CIB) utilizando Python, GitHub Actions y Control de Versiones
+
+
+Resumen
+
+Esta segunda entrega del Proyecto Integrado V presenta la ampliación del sistema automatizado desarrollado previamente para el análisis de datos financieros de la acción de Bancolombia S.A. (CIB), enfocándose en la implementación de control de versiones y buenas prácticas de ingeniería de software. Además del análisis automatizado mediante Python y GitHub Actions, en esta etapa se realizó el despliegue en un repositorio estructurado con versionamiento semántico, integración continua y validación de versiones. El propósito es garantizar trazabilidad, reproducibilidad y colaboración efectiva en entornos de desarrollo orientados a datos.
+
+Introducción
+La automatización del análisis financiero mediante herramientas de código abierto permite un acceso ágil y sistemático a datos relevantes para la toma de decisiones. En la primera entrega se diseñó un sistema que recopila y enriquece datos históricos de la acción de Bancolombia (CIB), operando automáticamente mediante GitHub Actions.
+
+Para la presente entrega, se ha ampliado el alcance con la integración de control de versiones usando Git y GitHub, lo que fortalece el proyecto desde una perspectiva de ingeniería de software. Esta mejora garantiza el seguimiento de los cambios, la validación continua del código y el despliegue confiable del sistema, asegurando que cada versión cumpla con estándares de calidad y funcionalidad.
+
+Objetivo General
+Implementar control de versiones en el sistema de análisis automatizado de datos financieros de la acción de Bancolombia S.A. (CIB), fortaleciendo la gestión del ciclo de vida del software.
+
+
+Objetivos Específicos
+
+•	Desplegar el sistema en un repositorio estructurado y documentado.
+•	Implementar integración continua (CI) para validar automáticamente la ejecución del sistema.
+•	Establecer un esquema de versionamiento semántico para identificar cambios en cada entrega.
+•	Validar la integridad funcional de cada versión del sistema mediante pruebas automatizadas.
+
+
+Metodología
+Control de versiones y estructura del repositorio
+Se utilizó Git como sistema de control de versiones distribuido. El repositorio fue organizado de la siguiente forma:
+
+/src/: contiene los módulos collector.py, enricher.py, modeller.py, logger.py y main.py.
+/logs/: almacena los registros de ejecución.
+/tests/: incluye pruebas unitarias.
+.github/workflows/: contiene el archivo update_data.yml para la automatización del flujo CI/CD.
+Estructura:
+📁 src/
+│   ├── collector.py
+│   ├── enricher.py
+│   ├── modeller.py
+│   ├── logger.py
+│   ├── dashboard.py  ==== Generación de gráficos
+│   └── main.py
+README.md: documenta el propósito y uso del proyecto.
+El esquema de versionamiento semántico aplicado sigue el formato MAJOR.MINOR.PATCH (Preston-Werner, 2013). Cada versión queda documentada con sus cambios principales en el archivo CHANGELOG.md.
+Integración continua y validación
+GitHub Actions fue configurado para:
+Ejecutar main.py automáticamente cada semana.
+Validar que los módulos corran sin errores (usando pytest).
+Generar logs y actualizar los archivos CSV si el análisis fue exitoso.
+Se añadieron pruebas básicas de consistencia de datos y formato de columnas usando pytest.
+
+Resultados
+La gráfica incluida en esta etapa muestra el comportamiento del cierre ajustado de la acción CIB a lo largo del periodo 2024–2025. Esta visualización resume múltiples ejecuciones del sistema donde se recolectó información actualizada periódicamente, permitiendo observar la evolución del indicador.
+El repositorio ha sido desplegado exitosamente en GitHub y presenta un historial claro de versiones. Cada ejecución programada ha sido validada mediante integración continua, asegurando que el sistema esté funcional y actualizado.
+
+
+
+Conclusiones
+La incorporación de control de versiones y herramientas de integración continua ha fortalecido el proyecto, garantizando trazabilidad, estabilidad y eficiencia en el desarrollo. Esta mejora permite escalar el sistema, colaborar con otros desarrolladores y adaptar el análisis a nuevos activos financieros con mayor facilidad. El enfoque adoptado responde a buenas prácticas de ingeniería de software orientadas a datos, siendo aplicable tanto en contextos académicos como profesionales.
+
+
+Referencias
+
+Preston-Werner, T. (2013). Semantic Versioning 2.0.0. Recuperado de https://semver.org/
+
+Yahoo Finance. (2025). Bancolombia S.A. (CIB) Stock Data. Recuperado de https://finance.yahoo.com
+
+Van Rossum, G., & Drake, F. L. (2009). The Python Language Reference Manual. Network Theory Ltd.
+
+Pandas Development Team. (2024). pandas: powerful Python data analysis toolkit. https://pandas.pydata.org
+
+GitHub Docs. (2025). About continuous integration. https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration
+ 
+CONTINUIDAD ULTIMA ENTREGA PROYECTO INTEGRADOR
+
+Contexto del Proyecto
+Este proyecto integrador tiene como propósito aplicar técnicas de ciencia de datos y visualización para analizar un indicador financiero real, combinando distintas herramientas como Python, GitHub y workflows en la nube.
+El indicador seleccionado corresponde al comportamiento bursátil del activo CIB, que representa a Grupo Bancolombia, actualmente denominado Grupo CIBest. Los datos se extrajeron de la plataforma financiera Yahoo Finance:
+https://es.finance.yahoo.com/quote/CIB/history/
+
+¿Qué es Grupo CIBest (antes Bancolombia)?
+Grupo CIBest es uno de los principales conglomerados financieros de Colombia, con presencia también en Centroamérica y Estados Unidos. A través de su acción CIB listada en la Bolsa de Valores de Nueva York (NYSE), los inversionistas pueden seguir su evolución financiera.
+¿En qué invierte Grupo CIBest?
+•	Servicios financieros (créditos, seguros, inversión)
+•	Servicios bancarios personales y corporativos
+•	Banca de inversión y fintech
+•	Emisión de bonos y participación en proyectos de desarrollo económico
+Importancia del Indicador Financiero CIB
+El indicador CIB representa el precio de la acción de Bancolombia en mercados internacionales. Su relevancia radica en que:
+•	Mide la confianza del mercado en la gestión financiera de la entidad.
+•	Permite analizar tendencias macroeconómicas (como inflación, tasas de interés).
+•	Es útil para inversionistas que desean evaluar la rentabilidad y volatilidad del activo.
+Su evolución refleja cambios en la estabilidad financiera del país.
+
+¿Qué mide este indicador y qué se buscó con el análisis?
+Se midieron principalmente:
+•	Precio de apertura y cierre
+•	Volumen de transacciones
+•	Máximos y mínimos históricos
+•	Variaciones diarias y semanales
+El objetivo fue entender el comportamiento del precio de la acción CIB en el tiempo y encontrar patrones que puedan ayudar en la toma de decisiones financieras.
+Diseño del Proyecto
+a) Extracción de Datos
+•	Los datos se obtuvieron mediante yfinance, una librería de Python que permite extraer información de mercados directamente desde Yahoo Finance.
+•	Se consultó el historial de precios de la acción CIB en formato histórico (.csv o DataFrame).
+b) Modelamiento
+•	Se realizó limpieza de datos, eliminación de valores nulos y conversión de fechas.
+•	Se calcularon indicadores técnicos simples como:
+Media móvil (MA)
+Porcentaje de cambio
+Desviación estándar del precio
+c) Visualización
+•	Se usaron librerías como matplotlib y seaborn para graficar:
+Evolución del precio en el tiempo
+Volumen de operaciones
+Variaciones semanales.
+
+Ejecución del Proyecto en la Nube
+El proyecto fue automatizado mediante GitHub Actions, que permite crear workflows que se ejecutan en la nube sin necesidad de un entorno local.
+•	Se programó un script en Python que extrae y analiza los datos.
+•	Este script se ejecuta automáticamente en GitHub con cada actualización del repositorio.
+•	La automatización hace que el análisis sea repetible, escalable y trazable.
